@@ -1,0 +1,12 @@
+Graphical Password Generator Changelog
+
+## [1.0] - 2024/4/11
+
+### Added
+
+- Generate passwords based on users settings
+- Write generated password to a file for ease of access
+
+### Plan to add
+
+- choose path of files
