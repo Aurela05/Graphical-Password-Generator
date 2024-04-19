@@ -1,5 +1,22 @@
 Graphical Password Generator Changelog
 
+## [2.0] - 2024/4/19
+
+### Added
+
+- Much better looking user interface
+- Functionality to open files within the app which may help add functionality to choose path later on
+
+### Fixed
+
+- First-time-users should have no issues with file nameing
+
+### Removed 
+
+- Toolbar at the top of the window
+
+
+
 ## [1.0] - 2024/4/11
 
 ### Added

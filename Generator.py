@@ -1,4 +1,7 @@
 import customtkinter
+import tkinter as tk
+from tkinter import filedialog
+from PIL import ImageTk,Image
 from pathlib import Path
 from pickle import APPEND
 import string
@@ -86,6 +89,14 @@ class App(customtkinter.CTk):
         
         self.button_2 = customtkinter.CTkButton(self.frame2, text="Settings", command=self.open_toplevel)
         self.button_2.pack(side="top", padx=20, pady=20)
+        
+        self.button_3 = customtkinter.CTkButton(self.frame2, text="Open file", command=self.open_file)
+        self.button_3.pack(side="top", padx=20, pady=20)
+        
+        self.textbox = customtkinter.CTkTextbox(master=self, width=400)
+        
+        
+        
 
         self.toplevel_window = None
 
@@ -104,6 +115,7 @@ class App(customtkinter.CTk):
         for i in range(password_len):
             password += "".join(secrets.choice(password_char))
             
+        USERNAME = settings["USER"]["person_1"]
         settings["PASS"]["password"] = password
         text_file = open(USERNAME, "a")
         text_file.write('()--'+password)
@@ -112,7 +124,18 @@ class App(customtkinter.CTk):
 
         settings["PASS"]["password"] = password
         print(password)
-        
+    
+    def open_file(self):
+        self.filename = filedialog.askopenfilename(initialdir=".../PythonPWG",title="e",filetypes=(("txt file","*.txt"),("all files","*.*")))
+        if self.filename:
+            print("e")
+            with open(self.filename, 'r') as file:
+                content = file.read()
+                self.textbox.pack(pady=12, padx=10)
+                self.textbox.insert("0.0",content)
+
+                
+                
 class Appdef(customtkinter.CTk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
