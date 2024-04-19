@@ -43,18 +43,18 @@ class SettingsWindow(customtkinter.CTkToplevel):
         self.pwd_length = self.entry2.get()
         self.chars = self.drop1.get()
         if self.chars == "Lowercase":
-            self.chars = string.ascii_lowercase
+            self.charsss = string.ascii_lowercase
         if self.chars == "Lower and Upper":
-            self.chars = string.ascii_letters
+            self.charsss = string.ascii_letters
         if self.chars == "Numbers":
-            self.chars = string.digits
+            self.charsss = string.digits
         if self.chars == "All":
-            pass
+            self.charsss = string.ascii_letters + string.digits
         
         #--Save to ini file
         settings["USER"]["person_1"] = self.user
         settings["PASS"]["length"] = self.pwd_length
-        settings["PASS"]["CHARS"] = self.chars
+        settings["PASS"]["chars"] = self.charsss
         self.exit()
         
     def exit(self):
