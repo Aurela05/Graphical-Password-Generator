@@ -1,5 +1,14 @@
 Graphical Password Generator Changelog
 
+## [2.1] - 2024/4/23
+
+### Added
+
+- Now creates a new line at the end of each password so each password will get it's own line in the ini file
+- Can now open the settings file and the password file within the app
+
+
+
 ## [2.0] - 2024/4/19
 
 ### Added

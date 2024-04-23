@@ -1,7 +1,6 @@
 import customtkinter
 import tkinter as tk
 from tkinter import filedialog
-from PIL import ImageTk,Image
 from pathlib import Path
 from pickle import APPEND
 import string
@@ -81,12 +80,6 @@ class App(customtkinter.CTk):
         self.label2 = customtkinter.CTkLabel(self.frame2, text="Current Settings", font=("Roboto",24))
         self.label2.pack(pady=12, padx=10)
         
-        # self.label3 = customtkinter.CTkLabel(self.frame2, text="User: "+USERNAME, font=("Roboto",18))
-        # self.label3.pack(pady=12, padx=10)
-        
-        # self.label4 = customtkinter.CTkLabel(self.frame2, text="Length: "+settings["PASS"]["length"], font=("Roboto",18))
-        # self.label4.pack(pady=12, padx=10)
-        
         self.button_2 = customtkinter.CTkButton(self.frame2, text="Settings", command=self.open_toplevel)
         self.button_2.pack(side="top", padx=20, pady=20)
         
@@ -95,9 +88,6 @@ class App(customtkinter.CTk):
         
         self.textbox = customtkinter.CTkTextbox(master=self, width=400)
         
-        
-        
-
         self.toplevel_window = None
 
     def open_toplevel(self):
@@ -118,7 +108,7 @@ class App(customtkinter.CTk):
         USERNAME = settings["USER"]["person_1"]
         settings["PASS"]["password"] = password
         text_file = open(USERNAME, "a")
-        text_file.write('()--'+password)
+        text_file.write('()--'+password+"\n")
         text_file.write(' ')
         text_file.close()
 
@@ -126,9 +116,8 @@ class App(customtkinter.CTk):
         print(password)
     
     def open_file(self):
-        self.filename = filedialog.askopenfilename(initialdir=".../PythonPWG",title="e",filetypes=(("txt file","*.txt"),("all files","*.*")))
+        self.filename = filedialog.askopenfilename(initialdir=".../PythonPWG",title="e",filetypes=(("ini file","*.ini"),("txt file","*.txt"),("all files","*.*")))
         if self.filename:
-            print("e")
             with open(self.filename, 'r') as file:
                 content = file.read()
                 self.textbox.pack(pady=12, padx=10)
